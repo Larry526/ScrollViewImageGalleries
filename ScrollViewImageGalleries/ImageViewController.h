@@ -1,16 +1,13 @@
 //
-//  ViewController.h
+//  ImageViewController.h
 //  ScrollViewImageGalleries
 //
 //  Created by Larry Luk on 2017-11-13.
 //  Copyright © 2017 Larry Luk. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "ImageViewController.h"
+#import "ViewController.h"
 
-@interface ViewController : UIViewController
-
+@interface ImageViewController : UIViewController
 
 @end
-

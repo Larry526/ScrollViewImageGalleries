@@ -39,5 +39,45 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
+        <!--Image View Controller-->
+        <scene sceneID="MDc-zC-7ov">
+            <objects>
+                <viewController id="xJF-nL-0KB" customClass="ImageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IGU-t1-TfZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MXd-RD-Zwt">
+                                <rect key="frame" x="0.0" y="100" width="375" height="467"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVg-NA-jZb">
+                                        <rect key="frame" x="67" y="181" width="240" height="128"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gVg-NA-jZb" firstAttribute="leading" secondItem="MXd-RD-Zwt" secondAttribute="leading" id="6Fd-I6-AbU"/>
+                                    <constraint firstAttribute="trailing" secondItem="gVg-NA-jZb" secondAttribute="trailing" id="TTp-hF-zss"/>
+                                    <constraint firstAttribute="bottom" secondItem="gVg-NA-jZb" secondAttribute="bottom" id="e1v-qR-4yS"/>
+                                    <constraint firstItem="gVg-NA-jZb" firstAttribute="top" secondItem="MXd-RD-Zwt" secondAttribute="top" id="qq3-GL-1vB"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MXd-RD-Zwt" firstAttribute="leading" secondItem="U5f-hn-CAm" secondAttribute="leading" id="2QY-hD-Zwb"/>
+                            <constraint firstItem="MXd-RD-Zwt" firstAttribute="trailing" secondItem="U5f-hn-CAm" secondAttribute="trailing" id="KHP-9y-0gC"/>
+                            <constraint firstAttribute="bottom" secondItem="MXd-RD-Zwt" secondAttribute="bottom" constant="100" id="jZX-f1-0Zq"/>
+                            <constraint firstItem="MXd-RD-Zwt" firstAttribute="top" secondItem="IGU-t1-TfZ" secondAttribute="top" constant="100" id="sWl-dn-OPI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U5f-hn-CAm"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageDetail" destination="MXd-RD-Zwt" id="zoh-EO-KLP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hr5-4d-Auc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093.5999999999999" y="133.5832083958021"/>
+        </scene>
     </scenes>
 </document>

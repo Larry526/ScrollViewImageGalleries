@@ -21,23 +21,29 @@
     self.view.backgroundColor = [UIColor blackColor];
     self.imageScrollView.contentSize = CGSizeMake(self.view.bounds.size.width*3, self.imageScrollView.bounds.size.height);
     
-    CGRect frame1 = CGRectMake(0,0,self.view.bounds.size.width,self.imageScrollView.bounds.size.height);
-    UIImageView *image1 = [[UIImageView alloc]initWithFrame:frame1];
-    image1.image = [UIImage imageNamed:@"Lighthouse-in-Field"];
-    [self.imageScrollView addSubview:image1];
-    
-    CGRect frame2 = CGRectMake(self.view.bounds.size.width,0,self.view.bounds.size.width,self.imageScrollView.bounds.size.height);
-    UIImageView *image2 = [[UIImageView alloc]initWithFrame:frame2];
-    image2.image = [UIImage imageNamed:@"Lighthouse-night"];
-    [self.imageScrollView addSubview:image2];
-    
-    CGRect frame3 = CGRectMake(self.view.bounds.size.width*2,0,self.view.bounds.size.width,self.imageScrollView.bounds.size.height);
-    UIImageView *image3 = [[UIImageView alloc]initWithFrame:frame3];
-    image3.image = [UIImage imageNamed:@"Lighthouse-zoomed"];
-    [self.imageScrollView addSubview:image3];
+    for (NSInteger i = 1; i <= 3; i++) {
+        CGRect frame  = CGRectMake(self.view.bounds.size.width * (i - 1),0,self.view.bounds.size.width,self.imageScrollView.bounds.size.height);
+        UIImageView *image = [[UIImageView alloc]initWithFrame:frame];
+        image.image = [UIImage imageNamed:[NSString stringWithFormat: @"%li",i]];
+        [self.imageScrollView addSubview:image];
+    }
     
     self.imageScrollView.pagingEnabled = YES;
+
     
+
+//
+//    CGRect frame2 = CGRectMake(self.view.bounds.size.width,0,self.view.bounds.size.width,self.imageScrollView.bounds.size.height);
+//    UIImageView *image2 = [[UIImageView alloc]initWithFrame:frame2];
+//    image2.image = [UIImage imageNamed:@"Lighthouse-night"];
+//    [self.imageScrollView addSubview:image2];
+//
+//    CGRect frame3 = CGRectMake(self.view.bounds.size.width*2,0,self.view.bounds.size.width,self.imageScrollView.bounds.size.height);
+//    UIImageView *image3 = [[UIImageView alloc]initWithFrame:frame3];
+//    image3.image = [UIImage imageNamed:@"Lighthouse-zoomed"];
+//    [self.imageScrollView addSubview:image3];
+//
+//
 
 }
 

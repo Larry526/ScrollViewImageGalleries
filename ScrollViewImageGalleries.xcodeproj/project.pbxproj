@@ -13,6 +13,7 @@
 		05E997961FBA0606000CC262 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05E997951FBA0606000CC262 /* Assets.xcassets */; };
 		05E997991FBA0606000CC262 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E997971FBA0606000CC262 /* LaunchScreen.storyboard */; };
 		05E9979C1FBA0606000CC262 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9979B1FBA0606000CC262 /* main.m */; };
+		05E997A41FBA267B000CC262 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E997A31FBA267B000CC262 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		05E997981FBA0606000CC262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05E9979A1FBA0606000CC262 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05E9979B1FBA0606000CC262 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		05E997A21FBA267B000CC262 /* ImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		05E997A31FBA267B000CC262 /* ImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				05E9978D1FBA0606000CC262 /* AppDelegate.m */,
 				05E9978F1FBA0606000CC262 /* ViewController.h */,
 				05E997901FBA0606000CC262 /* ViewController.m */,
+				05E997A21FBA267B000CC262 /* ImageViewController.h */,
+				05E997A31FBA267B000CC262 /* ImageViewController.m */,
 				05E997921FBA0606000CC262 /* Main.storyboard */,
 				05E997951FBA0606000CC262 /* Assets.xcassets */,
 				05E997971FBA0606000CC262 /* LaunchScreen.storyboard */,
@@ -144,6 +149,7 @@
 			files = (
 				05E997911FBA0606000CC262 /* ViewController.m in Sources */,
 				05E9979C1FBA0606000CC262 /* main.m in Sources */,
+				05E997A41FBA267B000CC262 /* ImageViewController.m in Sources */,
 				05E9978E1FBA0606000CC262 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
