@@ -10,6 +10,6 @@
 
 @interface ImageViewController : UIViewController
 
-@property (strong, nonatomic) UIImageView *passedThruImage;
+@property (strong, nonatomic) UIImage *passedThruImage;
 
 @end

@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.image = self.passedThruImage;
+    self.image.image = self.passedThruImage;
     self.imageDetail.contentSize = CGSizeMake(self.view.bounds.size.width, self.imageDetail.bounds.size.height*1.5);
     self.imageDetail.delegate = self;
     self.view.backgroundColor = [UIColor blackColor];

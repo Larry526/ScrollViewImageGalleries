@@ -11,6 +11,8 @@
 @interface ViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (strong, nonatomic) UIImage *image;
+@property (strong,nonatomic) UIPageControl *pageControl;
+
 
 @end
 
@@ -27,40 +29,45 @@
         UIImageView *image = [[UIImageView alloc]initWithFrame:frame];
         image.image = [UIImage imageNamed:[NSString stringWithFormat: @"%li",i]];
         [self.imageScrollView addSubview:image];
+        self.imageScrollView.delegate = self;
         image.userInteractionEnabled = YES;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewTapped:)];
         [image addGestureRecognizer:tapGesture];
+        
+        self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height - 100, self.view.bounds.size.width, 50)];
+        [self.view addSubview:self.pageControl];
+        self.pageControl.layer.zPosition = 100;
+        self.pageControl.alpha = 0.5;
+        self.pageControl.numberOfPages = 3;
+        
+        
+        
+                                      
         
     }
     
     self.imageScrollView.pagingEnabled = YES;
 
-//    CGRect frame2 = CGRectMake(self.view.bounds.size.width,0,self.view.bounds.size.width,self.imageScrollView.bounds.size.height);
-//    UIImageView *image2 = [[UIImageView alloc]initWithFrame:frame2];
-//    image2.image = [UIImage imageNamed:@"Lighthouse-night"];
-//    [self.imageScrollView addSubview:image2];
-//
-//    CGRect frame3 = CGRectMake(self.view.bounds.size.width*2,0,self.view.bounds.size.width,self.imageScrollView.bounds.size.height);
-//    UIImageView *image3 = [[UIImageView alloc]initWithFrame:frame3];
-//    image3.image = [UIImage imageNamed:@"Lighthouse-zoomed"];
-//    [self.imageScrollView addSubview:image3];
-//
-//
-
 }
 
 - (void) viewTapped: (UITapGestureRecognizer*)sender {
-    [self performSegueWithIdentifier:@"id" sender:self];
     self.image = ((UIImageView*)sender.view).image;
+    [self performSegueWithIdentifier:@"id" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"id"]) {
         ImageViewController *secondVC = [segue destinationViewController];
-        secondVC.passedThruImage = sender;
+        secondVC.passedThruImage = self.image;
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat pageWidth = self.imageScrollView.frame.size.width;
+    float fractionalPage = self.imageScrollView.contentOffset.x / pageWidth;
+    NSInteger page = lround(fractionalPage);
+    self.pageControl.currentPage = page;
+}
 
 
 
