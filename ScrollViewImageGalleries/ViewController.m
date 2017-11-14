@@ -10,6 +10,7 @@
 
 @interface ViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
+@property (strong, nonatomic) UIImage *image;
 
 @end
 
@@ -26,13 +27,14 @@
         UIImageView *image = [[UIImageView alloc]initWithFrame:frame];
         image.image = [UIImage imageNamed:[NSString stringWithFormat: @"%li",i]];
         [self.imageScrollView addSubview:image];
+        image.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewTapped:)];
+        [image addGestureRecognizer:tapGesture];
+        
     }
     
     self.imageScrollView.pagingEnabled = YES;
 
-    
-
-//
 //    CGRect frame2 = CGRectMake(self.view.bounds.size.width,0,self.view.bounds.size.width,self.imageScrollView.bounds.size.height);
 //    UIImageView *image2 = [[UIImageView alloc]initWithFrame:frame2];
 //    image2.image = [UIImage imageNamed:@"Lighthouse-night"];
@@ -47,6 +49,17 @@
 
 }
 
+- (void) viewTapped: (UITapGestureRecognizer*)sender {
+    [self performSegueWithIdentifier:@"id" sender:self];
+    self.image = ((UIImageView*)sender.view).image;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"id"]) {
+        ImageViewController *secondVC = [segue destinationViewController];
+        secondVC.passedThruImage = sender;
+    }
+}
 
 
 

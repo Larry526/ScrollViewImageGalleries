@@ -10,6 +10,7 @@
 
 @interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imageDetail;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 
 @end
 
@@ -17,13 +18,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imageDetail.minimumZoomScale = 0.5;
-    self.imageDetail.maximumZoomScale = 2;
-    
+    self.image = self.passedThruImage;
+    self.imageDetail.contentSize = CGSizeMake(self.view.bounds.size.width, self.imageDetail.bounds.size.height*1.5);
+    self.imageDetail.delegate = self;
+    self.view.backgroundColor = [UIColor blackColor];
+
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.imageDetail;
+    self.imageDetail.minimumZoomScale = 0.5;
+    self.imageDetail.maximumZoomScale = 2;
+    return self.image;
 }
+            
+
+- (IBAction)dismissController:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
 
 @end

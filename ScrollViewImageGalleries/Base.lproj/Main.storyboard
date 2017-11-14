@@ -20,6 +20,10 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdP-HO-sqE">
                                 <rect key="frame" x="0.0" y="100" width="375" height="467"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IsX-6a-FK1" appends="YES" id="a3s-ay-U39"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -33,9 +37,11 @@
                     </view>
                     <connections>
                         <outlet property="imageScrollView" destination="bdP-HO-sqE" id="Frt-bF-nTZ"/>
+                        <segue destination="xJF-nL-0KB" kind="presentation" identifier="id" id="HDm-bs-36s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IsX-6a-FK1"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
@@ -48,30 +54,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MXd-RD-Zwt">
-                                <rect key="frame" x="0.0" y="100" width="375" height="467"/>
+                                <rect key="frame" x="0.0" y="25" width="375" height="599"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVg-NA-jZb">
-                                        <rect key="frame" x="67" y="181" width="240" height="128"/>
+                                        <rect key="frame" x="67" y="244" width="240" height="128"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="gVg-NA-jZb" firstAttribute="leading" secondItem="MXd-RD-Zwt" secondAttribute="leading" id="6Fd-I6-AbU"/>
-                                    <constraint firstAttribute="trailing" secondItem="gVg-NA-jZb" secondAttribute="trailing" id="TTp-hF-zss"/>
-                                    <constraint firstAttribute="bottom" secondItem="gVg-NA-jZb" secondAttribute="bottom" id="e1v-qR-4yS"/>
-                                    <constraint firstItem="gVg-NA-jZb" firstAttribute="top" secondItem="MXd-RD-Zwt" secondAttribute="top" id="qq3-GL-1vB"/>
+                                    <constraint firstItem="gVg-NA-jZb" firstAttribute="top" secondItem="MXd-RD-Zwt" secondAttribute="top" id="167-QM-V3m"/>
+                                    <constraint firstAttribute="trailing" secondItem="gVg-NA-jZb" secondAttribute="trailing" id="Fni-Pj-rbw"/>
+                                    <constraint firstAttribute="bottom" secondItem="gVg-NA-jZb" secondAttribute="bottom" id="bY8-4f-oMr"/>
+                                    <constraint firstItem="gVg-NA-jZb" firstAttribute="leading" secondItem="MXd-RD-Zwt" secondAttribute="leading" id="dW0-yF-hey"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SA5-RU-QyW">
+                                <rect key="frame" x="0.0" y="632" width="375" height="30"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissController:" destination="xJF-nL-0KB" eventType="touchUpInside" id="y7w-x0-uZ1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MXd-RD-Zwt" firstAttribute="leading" secondItem="U5f-hn-CAm" secondAttribute="leading" id="2QY-hD-Zwb"/>
-                            <constraint firstItem="MXd-RD-Zwt" firstAttribute="trailing" secondItem="U5f-hn-CAm" secondAttribute="trailing" id="KHP-9y-0gC"/>
-                            <constraint firstAttribute="bottom" secondItem="MXd-RD-Zwt" secondAttribute="bottom" constant="100" id="jZX-f1-0Zq"/>
-                            <constraint firstItem="MXd-RD-Zwt" firstAttribute="top" secondItem="IGU-t1-TfZ" secondAttribute="top" constant="100" id="sWl-dn-OPI"/>
+                            <constraint firstItem="MXd-RD-Zwt" firstAttribute="leading" secondItem="U5f-hn-CAm" secondAttribute="leading" id="DQZ-j2-pwc"/>
+                            <constraint firstAttribute="bottom" secondItem="SA5-RU-QyW" secondAttribute="bottom" constant="5" id="O21-pk-Ihk"/>
+                            <constraint firstAttribute="bottom" secondItem="MXd-RD-Zwt" secondAttribute="bottom" constant="40" id="PBY-hd-sZ3"/>
+                            <constraint firstItem="MXd-RD-Zwt" firstAttribute="trailing" secondItem="U5f-hn-CAm" secondAttribute="trailing" id="V3H-mA-tRI"/>
+                            <constraint firstItem="U5f-hn-CAm" firstAttribute="trailing" secondItem="SA5-RU-QyW" secondAttribute="trailing" id="cBX-E8-xRj"/>
+                            <constraint firstItem="MXd-RD-Zwt" firstAttribute="top" secondItem="IGU-t1-TfZ" secondAttribute="top" constant="30" id="kO5-ne-NMc"/>
+                            <constraint firstItem="SA5-RU-QyW" firstAttribute="leading" secondItem="U5f-hn-CAm" secondAttribute="leading" id="tIr-X0-VuY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U5f-hn-CAm"/>
                     </view>
                     <connections>
+                        <outlet property="image" destination="gVg-NA-jZb" id="8b0-JU-npO"/>
                         <outlet property="imageDetail" destination="MXd-RD-Zwt" id="zoh-EO-KLP"/>
                     </connections>
                 </viewController>
